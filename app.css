@@ -74,3 +74,13 @@ hr {
     right: 10%;
     width: 90%;
 }
+
+.letter {
+    transition: color 1000ms;
+    /* background-color: black; */
+    font-family: "Bitcount Prop Double", system-ui;
+}
+
+button {
+    background-color: black;
+}
