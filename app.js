@@ -44,7 +44,7 @@ function imgString () {
 };
 
 listener.addEventListener('dblclick', function (event){
-    console.log(event.target.tagName)
+   // console.log(event.target.tagName)
     if(event.target.tagName === 'IMG' ) {
         event.target.parentElement.remove();
     };
@@ -66,4 +66,5 @@ setInterval(function () {
 for (let letter of letters) {
     letter.style.color = randomRGB();
   }
+
 }, 1000)
