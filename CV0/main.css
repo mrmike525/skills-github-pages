@@ -57,6 +57,7 @@ body {
     font-family: orbitron, Arial, Helvetica, sans-serif;
     color: rgb(30, 158, 23);
     padding-top: 10px;
+    border-top: 5px;
 }
 /* email link */
 .aA{
@@ -178,4 +179,5 @@ main section {
         
     }
 }
+
 
