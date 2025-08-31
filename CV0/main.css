@@ -1,0 +1,181 @@
+/* Section with picture, fancy name and email+phone ## */
+#maintop {
+    position: relative;
+    top: -4em;
+}
+
+/* select all for box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(170, 217, 29, .3);
+    
+}
+
+/* profile picture */
+.me {
+    display: flex;
+    justify-content: start;
+    height: 20%;
+    width: 20%;
+    border: solid #0e4e0b 3px;
+    border-radius: 5em;
+    position: relative;
+    top: 13vh;
+    
+}
+
+/* Name in fancy font */
+.hA {
+    font-family: "lavishly yours", Verdana, Geneva, Tahoma, sans-serif;
+    font-size:  10vh;
+    color: darkgreen;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+}
+/* phone # */
+.pC {
+    font-family: orbitron, Arial, Helvetica, sans-serif;
+    font-size: 3vh;
+    color: rgb(0, 32, 128, .7);
+    font-weight: bold;
+    margin-top: 0;
+    font-variant: small-caps;
+    display: flex;
+    justify-content: right;
+    position: relative;
+    left: -1%;
+    margin-bottom: -5em;
+    
+}
+
+/* education */
+.hB {
+    font-family: orbitron, Arial, Helvetica, sans-serif;
+    color: rgb(30, 158, 23);
+    padding-top: 10px;
+}
+/* email link */
+.aA{
+    font-family: "great vibes", Arial, Helvetica, sans-serif;
+    font-size: 5vh;
+    text-decoration: none;
+    color: rgb(0, 32, 128);
+    line-height: 1em;
+    display: flex;
+    justify-content: right;
+    position: relative;
+    left: -1%;
+    
+    
+}
+/* Changing the links to hint that they are clickable */
+.aA:hover, .aB:hover, .a4:hover, .a5:hover {
+    color: red;
+}
+
+/* Summary Paragraph */
+.p6 {
+    font-family: orbitron, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: left;
+    width: 100%;
+
+}
+/* Table A (the only table) */
+.tA {
+    font-family: orbitron, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    width: 90%;
+    border: 1px dashed rgb(68, 176, 32);
+}
+
+td {
+    border: 1px dashed rgb(68, 176, 32);
+}
+
+th {
+    color: #0e4e0b;
+}
+
+/* Takeway underline on links */
+.aB, .a5, .a4 {
+    text-decoration: none;
+    color: #0e4e0b;
+}
+
+/* some shared formatting  */
+.p5, .f1, select, label, ul, ol {
+    font-family: orbitron, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+/* stay tuned and bottom of page with form */
+#pTuned {
+    color: rgb(30, 158, 23);
+    font-size: 20px;
+}
+div form {
+    background-color:rgb(150, 183, 138);
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+
+}
+/* Stay tuned */
+#tuned {
+    padding-top: 20px;
+}
+/* tech section */
+#tech {
+    font-family: orbitron, Arial, Helvetica, sans-serif;
+    color: rgb(14, 78, 11);
+    font-size: 30px;
+    padding-top: 50px;
+    text-decoration: underline;
+}
+/* Form Formatting */
+#guest {
+    font-size: 1em;
+    color: olive;
+}
+
+hr {
+     border-color: olive;
+     border-width: 5px;
+}
+/* Formatting for summary */
+main section {
+    margin-top: 2em;
+    padding: 0;
+}
+
+/*Formatting for selection box and text-area */
+#fun {
+    width: 30%;
+}
+#comment {
+    width: 100%;
+}
+
+/* adjustments to help keep the formating looking good while adjusting pixeld width from 475 and up */
+@media (max-width: 700px) {
+    #fun {
+        font-size: 40%;
+    }
+}
+
+@media (max-width: 475px) {
+     .me {
+        position: relative;
+        width: 20%;
+        top: 80px;
+
+        
+    }
+}
+
