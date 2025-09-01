@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htmlElementGenerator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bitcount+Prop+Double:wght@100..900&family=Funnel+Display:wght@300..800&family=Leckerli+One&family=Montserrat:ital,
+wght@0,100..900;1,100..900&family=Mozilla+Headline:wght@200..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Passion+One:wght@400;700;900&family=Roboto+Slab:wght@100
+..900&family=Savate:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="appTime.css">
+</head>
+<body>
+
+<header>
+    <form action="">
+    <h1>HTML Element Generator 1.0</h1>
+    <h2>This is a html Element Generator.</h2>
+    <hr>
+    <p class="pHead">To proceed...  <br><br> <ol>
+        <li>Select an Element in the drop down menu </li>
+        <li>Type your text in the text area</li>
+        <li>Choose the font size with the slider, (font size only applies to paragraphs and lists) </li>
+        <li>Select font color </li>
+        <li>Select background color for the 
+        Element area. </li>
+        <li>Check the box if you would like element created to be delayed by 3 seconds</li>
+        <li>Click the create element button.  </li>
+        </ol>
+        <hr>
+    </p>
+    <label for="choice">Select Element
+    <select name="element" id="choice">
+        
+        <option value="h1">h1</option>
+        <option value="h2">h2</option>
+        <option value="h3">h3</option>
+        <option value="h4">h4</option>
+        <option value="h5">h5</option>
+        <option value="p">p</option>
+        <option value="ul">ul</option>
+        <option value="ol">ol</option>
+    </select>
+    </label>
+
+    <label for="fontChoice">Select Font
+    <select name="font" id="fontChoice">
+        
+        <option value="Passion One">Passion One</option>
+        <option value="Leckerli One">Leckerli One</option>
+        <option value="Bitcount Prop Double">Bitcount Prop Double</option>
+        <option value="Bangers">Bangers Static</option>
+    </select>
+    </label>
+    
+    <label for="innerText">Inner Text
+    <textarea name="" id="innerText" placeholder="Enter the innerText for your element here. Then Click the Create Element Button."></textarea>
+</label>
+<input type="range" id="fontSize" class="slider" min="15" max="175" step="1">
+<label for="color"> Font Color
+<input type="color" id="color">
+</label>
+<label for="colorMain">Color Main
+<input type="color" id="colorMain">
+</label>
+<br><br>
+<label for="threeSeconds"> If checked, delay element creation by 3 seconds.
+<input type="checkbox" id="threeSeconds" >
+</label>
+<button id="submit">Create Element</button>
+<p>**Important Double Click on the element to remove that element**
+    <br>
+    **font size slider only applies to paragraphs and lists**
+</p>
+</form>
+<hr>
+</header>
+
+
+<main>
+    <div id="main">
+
+    </div>
+</main>
+    
+    
+    
+    
+    
+    <script src="appTime.js"></script>
+</body>
+</html>

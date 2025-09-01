@@ -1,0 +1,77 @@
+#main {
+    width: 90%;
+    height: 90%;
+    background-color: orange;
+    /* border: 2px solid black; */
+    margin-left: 10px;
+    
+}
+
+ul, ol, p, h1, h2, h3, h4, h5 {
+    list-style-position: inside;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 10%;
+  height: 15px;
+  background: #000;
+  outline: none;
+  border: 5px solid lawngreen;
+  border-radius: 8px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 60px;
+  background: #000;
+  cursor: pointer;
+  border: 5px solid lawngreen;
+  border-radius: 4px;
+}
+
+.pHead {
+  width: 40%;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.newElement {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  width: 85%;
+
+}
+
+#innerText {
+  width: 30%;
+  height: 100px;
+  border: solid rgb(149, 43, 43) 2px;
+  /* display: block; */
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+button {
+  font-size: 2em;
+  font-style: italic;
+  margin-left: 100px;
+  border: 2px solid yellow;
+  
+}
+
+hr {
+  border-color: blue;
+}
