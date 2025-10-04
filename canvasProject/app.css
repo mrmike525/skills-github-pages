@@ -1,0 +1,16 @@
+#myCanvas {
+    background-color: orange;
+    
+}
+
+h1 {
+    display: inline-block;
+}
+
+#reset {
+    margin-left: 25px;
+}
+
+label {
+    margin-left: 25px;
+}

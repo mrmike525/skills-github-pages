@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <h1>Canvas</h1>
+    <button id="reset">Reset</button>
+    <label for="canvasColor">Canvas Color
+    <input type="color" name="" id="canvasColor">
+    </label>
+    <label for="lineColor">Line Color
+        <input type="color" id="lineColor" value="#FF0000">
+    </label>
+    <label for="lineWidth">
+    <input type="range" id="lineWidth" min=".5" max="50" step=".5" value="4">
+    </label>
+    <label for="gridPattern">Check for a Grid Pattern
+        <input type="checkbox" id="gridPattern">
+    </label>
+    <canvas id="myCanvas" width="1400px" height="400"></canvas>
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
