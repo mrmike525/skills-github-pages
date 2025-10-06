@@ -1,0 +1,86 @@
+body {
+    background-color: orange;
+    
+    
+}
+header {
+    width: 90%;
+    font-family: "Roboto Slab";
+    margin-left: 10%;
+}
+h1 {
+    /* justify-content: center; */
+    margin: 0, auto;
+    /* background-color: red; */
+    position: relative;
+    left: 20%;
+}
+
+#submit {
+    font-size: 75px;
+}
+
+/* #listener { */
+    /* border: 2px solid black */
+/* } */
+
+/* #toMeme { */
+    /* border: 2px solid rgb(203, 31, 31); */
+/* } */
+
+.placedDiv {
+    position: relative;
+    /* border: 2px solid blue; */
+    /* height: 50vw; */
+    /* width: 70vw; */
+    display: inline-block;
+    /* padding: 5px; */
+    margin: 10px;
+}
+
+img {
+    height: 30vw;
+   /* margin: 20px; */
+  /* padding: 10px; */
+  background-color: white; /* to see padding */
+  margin: 10px;
+}
+
+#topH3 {
+    position: absolute;
+    top: -5%;
+    left: 25%;
+}
+
+#bottomH3 {
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+}
+
+h3 {
+    font-family: "Bangers", system-ui;
+    color: rgba(221, 25, 25, 0.8);
+    font-size: 2.25rem;
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+hr {
+    position: relative;
+    right: 10%;
+    width: 90%;
+}
+
+.letter {
+    transition: color 1000ms;
+    /* background-color: black; */
+    font-family: "Bitcount Prop Double", system-ui;
+}
+
+button {
+    background-color: black;
+}
