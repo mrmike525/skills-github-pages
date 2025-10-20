@@ -178,21 +178,27 @@ function handleClickOfActiveClue (event)
   }
 }
 
+let responseDataCategories = [];
 
-
-async function getData() {
+async function getData(id) {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
 count=25`);
-const specificCategory = await axios.get ("https://rithm-jeopardy.herokuapp.com/api/category?id=3")
+const specificCategory = await axios.get ("https://rithm-jeopardy.herokuapp.com/api/category?id=" + `${id}`)
 
 for(let categories of categoryResponse.data) {
   console.log(categories.title, categories.id);
   };
   console.log(specificCategory.data)
+  return responseDataCategories = categoryResponse
 } catch (err) {
   console.error('Error', err);
 }
 }
+
+
+getData();
+
+const bigObject = {fishcolor: 'red', type: 'carp'}
 
 
