@@ -1,77 +1,9 @@
-// You only need to touch comments with the todo of this file to complete the assignment!
-
-/*
-=== How to build on top of the starter code? ===
-
-Problems have multiple solutions.
-We have created a structure to help you on solving this problem.
-On top of the structure, we created a flow shaped via the below functions.
-We left descriptions, hints, and to-do sections in between.
-If you want to use this code, fill in the to-do sections.
-However, if you're going to solve this problem yourself in different ways, you can ignore this starter code.
- */
-
-/*
-=== Terminology for the API ===
-
-Clue: The name given to the structure that contains the question and the answer together.
-Category: The name given to the structure containing clues on the same topic.
- */
-
-/*
-=== Data Structure of Request the API Endpoints ===
-
-/categories:
-[
-  {
-    "id": <category ID>,
-    "title": <category name>,
-    "clues_count": <number of clues in the category where each clue has a question, an answer, and a value>
-  },
-  ... more categories
-]
-
-/category:
-{
-  "id": <category ID>,
-  "title": <category name>,
-  "clues_count": <number of clues in the category>,
-  "clues": [
-    {
-      "id": <clue ID>,
-      "answer": <answer to the question>,
-      "question": <question>,
-      "value": <value of the question (be careful not all questions have values) (Hint: you can assign your own value such as 200 or skip)>,
-      ... more properties
-    },
-    ... more clues
-  ]
-}
- */
-
 const API_URL = "https://rithm-jeopardy.herokuapp.com/api/"; // The URL of the API.
 const NUMBER_OF_CATEGORIES = 6; // The number of categories you will be fetching. You can change this number.
 const NUMBER_OF_CLUES_PER_CATEGORY = 5; // The number of clues you will be displaying per category. You can change this number.
 
 let categories = []; // The categories with clues fetched from the API.
-/*
-[
-  {
-    "id": <category ID>,
-    "title": <category name>,
-    "clues": [
-      {
-        "id": <clue ID>,
-        "value": <value (e.g. $200)>,
-        "question": <question>,
-        "answer": <answer>
-      },
-      ... more categories
-    ]
-  },
-  ... more categories
-]
- */
+
 
 let activeClue = null; // Currently selected clue data.
 let activeClueMode = 0; // Controls the flow of #active-clue element while selecting a clue, displaying the question of selected clue, and displaying the answer to the question.
@@ -246,21 +178,27 @@ function handleClickOfActiveClue (event)
   }
 }
 
+let responseDataCategories = [];
 
-
-async function getData() {
+async function getData(id) {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
 count=25`);
-const specificCategory = await axios.get ("https://rithm-jeopardy.herokuapp.com/api/category?id=3")
+const specificCategory = await axios.get ("https://rithm-jeopardy.herokuapp.com/api/category?id=" + `${id}`)
 
 for(let categories of categoryResponse.data) {
   console.log(categories.title, categories.id);
   };
   console.log(specificCategory.data)
+  return responseDataCategories = categoryResponse
 } catch (err) {
   console.error('Error', err);
 }
 }
+
+
+getData();
+
+const bigObject = {fishcolor: 'red', type: 'carp'}
 
 
