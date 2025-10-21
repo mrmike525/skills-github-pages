@@ -180,25 +180,48 @@ function handleClickOfActiveClue (event)
 
 let responseDataCategories = [];
 
-async function getData(id) {
+async function getData(id=3) {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
 count=25`);
-const specificCategory = await axios.get ("https://rithm-jeopardy.herokuapp.com/api/category?id=" + `${id}`)
+
 
 for(let categories of categoryResponse.data) {
   console.log(categories.title, categories.id);
   };
-  console.log(specificCategory.data)
+  
   return responseDataCategories = categoryResponse
 } catch (err) {
   console.error('Error', err);
 }
 }
 
+let specificCategoryArray = [];
+
+async function getSpecificCategory(id = 3){ 
+const specificCategory = await axios.get ("https://rithm-jeopardy.herokuapp.com/api/category?id=" + `${id}`)
+console.log(specificCategory.data)
+specificCategoryArray.push(specificCategory.data)
+}
+
 
 getData();
+// getSpecificCategory();
+const catagorieRow = document.getElementById('categories')
 
-const bigObject = {fishcolor: 'red', type: 'carp'}
 
+
+function categorySpread() {
+  getSpecificCategory(2);
+  getSpecificCategory(3);
+  getSpecificCategory(17);
+  getSpecificCategory(18);
+  getSpecificCategory(10);
+  getSpecificCategory(11);
+}
+
+categorySpread();
+
+
+specificCategoryArray[0].title[0].toUpperCase() + specificCategoryArray[0].title.slice(1)
 
