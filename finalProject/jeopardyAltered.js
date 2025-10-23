@@ -180,12 +180,10 @@ function handleClickOfActiveClue (event)
 
 let responseDataCategories = [];
 
-async function getData(id=3) {
+async function getData() {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
 count=25`);
-
-
 for(let categories of categoryResponse.data) {
   console.log(categories.title, categories.id);
   };
