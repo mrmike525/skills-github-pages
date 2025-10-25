@@ -178,8 +178,8 @@ function handleClickOfActiveClue (event)
   }
 }
 
-let responseDataCategories = [];
 
+<<<<<<< Updated upstream
 async function getData() {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
@@ -189,11 +189,27 @@ for(let categories of categoryResponse.data) {
   };
   
   return responseDataCategories = categoryResponse
+=======
+
+async function getData(categories = 6, id = 3) {
+  try {
+const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
+count=${categories}`);
+const specificCategory = await axios.get (`https://rithm-jeopardy.herokuapp.com/api/category?id=${id}`)
+
+for(let categories of categoryResponse.data) {
+  console.log(categories.title, categories.id);
+  };
+  console.log(specificCategory.data)
+  return [categoryResponse.data, specificCategory.data]
+  // return responseDataCategories = categoryResponse
+>>>>>>> Stashed changes
 } catch (err) {
   console.error('Error', err);
 }
 }
 
+<<<<<<< Updated upstream
 let specificCategoryArray = [];
 
 async function getSpecificCategory(id = 3){ 
@@ -206,6 +222,32 @@ specificCategoryArray.push(specificCategory.data)
 getData();
 // getSpecificCategory();
 const catagorieRow = document.getElementById('categories')
+=======
+async function main(categories, choosenCategory){
+  try {
+    const result = await getData(categories, choosenCategory);
+    x = result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+main();
+
+let x;
+
+// const [responseDataCategories, responseSpecificCategory] = main();
+
+let playButton = document.getElementById('play')
+
+playButton.addEventListener('click', function(event){
+  event.preventDefault();
+  console.log(event.target.tagName)
+  playButton.innerText = 'End Game';
+  if(playButton.innerText === 'End Game'){
+    setTimeout(function(){playButton.innerText = 'Start the Game!'}, 2000)
+  }
+})
+>>>>>>> Stashed changes
 
 
 
