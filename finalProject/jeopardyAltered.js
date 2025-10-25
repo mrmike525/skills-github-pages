@@ -181,6 +181,7 @@ function handleClickOfActiveClue (event)
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 async function getData() {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
@@ -201,6 +202,12 @@ async function getData(categories = 6, id = 3) {
   try {
 const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
 >>>>>>> Stashed changes
+=======
+
+async function getData(categories = 6, id = 3) {
+  try {
+const categoryResponse = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
+>>>>>>> Stashed changes
 count=${categories}`);
 const specificCategory = await axios.get (`https://rithm-jeopardy.herokuapp.com/api/category?id=${id}`)
 
@@ -211,6 +218,9 @@ for(let categories of categoryResponse.data) {
   return [categoryResponse.data, specificCategory.data]
   // return responseDataCategories = categoryResponse
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -219,6 +229,7 @@ for(let categories of categoryResponse.data) {
 }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 let specificCategoryArray = [];
@@ -260,6 +271,20 @@ main();
 let x;
 
 >>>>>>> Stashed changes
+=======
+async function main(categories, choosenCategory){
+  try {
+    const result = await getData(categories, choosenCategory);
+    x = result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+main();
+
+let x;
+
+>>>>>>> Stashed changes
 // const [responseDataCategories, responseSpecificCategory] = main();
 
 let playButton = document.getElementById('play')
@@ -273,6 +298,9 @@ playButton.addEventListener('click', function(event){
   }
 })
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
