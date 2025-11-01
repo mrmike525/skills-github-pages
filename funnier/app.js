@@ -66,17 +66,7 @@ async function main(categories, choosenCategory){
   }
 }
 
-async function init() {
-await Promise.all([
-main(6, 2),
-main(6, 3),
-main(6, 4),
-main(6, 6),
-main(6, 8),
-main(6, 9),
-])};
 
-init();
 
 function createElement(elementName, appendName){
     let element = document.createElement(elementName);
@@ -92,21 +82,25 @@ function createVariableSelector(name){
 
 let p = createVariableSelector
 
+async function init() {
+await Promise.all([
+main(6, 2),
+main(6, 3),
+main(6, 4),
+main(6, 6),
+main(6, 8),
+main(6, 9),
 
+])
 const table = createElement('table', p('body'));
 const caption = createElement('caption', p('table'));
 caption.innerText = 'Jeopardy'
 const thead = createElement('thead', p('table'));
 
-
 const tr = createElement('tr', p('thead'));
 const thmain = createElement('th', p('tr'));
 
 // console.log(clueData[0][0].title)
-
-
-
-
 
 const th1 = createElement('th', p('tr'));
 th1.innerText = 'Category 2';
@@ -119,11 +113,20 @@ const tr2 = createElement('tr', p('tbody'));
 const td = createElement('td', p('tbody tr' ));
 td.innerText = 'What is the best way to do this?? HMM??? I think this is it...????!!!';
 
-setTimeout(function() {
-    thmain.innerText = clueData[0][0].title.toUpperCase();
+thmain.innerText = clueData[0][0].title.toUpperCase();
     th1.innerText = clueData[1][0].title.toUpperCase();
     th2.innerText = clueData[2][0].title.toUpperCase();
-}, 500);
+
+}
+
+init();
+
+
+// setTimeout(function() {
+//     thmain.innerText = clueData[0][0].title.toUpperCase();
+//     th1.innerText = clueData[1][0].title.toUpperCase();
+//     th2.innerText = clueData[2][0].title.toUpperCase();
+// }, 500);
 
 
 
