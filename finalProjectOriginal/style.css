@@ -12,12 +12,17 @@
   #74119c
 */
 
-.disabled
-{
+.disabled {
   display: none;
 }
 
-.viewed
-{
+.viewed {
   text-decoration: line-through;
+}
+
+th,
+td {
+  border: 1px solid #060ce9;
+  background-color: #115ff4;
+  font-size: 40px;
 }

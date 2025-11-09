@@ -1,97 +1,103 @@
-const API_URL = "https://rithm-jeopardy.herokuapp.com/api/"; 
-const NUMBER_OF_CATEGORIES = 100; 
-const NUMBER_OF_CLUES_PER_CATEGORY = 5; 
+const API_URL = "https://rithm-jeopardy.herokuapp.com/api/";
+const NUMBER_OF_CATEGORIES = 100;
+const NUMBER_OF_CLUES_PER_CATEGORY = 5;
 
-let categories = []; 
+let categories = [];
 
+let activeClue = null;
+let activeClueMode = 0;
 
-let activeClue = null; 
-let activeClueMode = 0; 
-
-let isPlayButtonClickable = true; 
+let isPlayButtonClickable = true;
 
 $("#play").on("click", handleClickOfPlay);
 
+setupTheGame();
 
-function handleClickOfPlay ()
-{
-  
+function handleClickOfPlay() {}
+
+async function setupTheGame() {
+  const categoryIds = await getCategoryIds();
+  console.log("Category IDs:", categoryIds);
+
+  const firstId = categoryIds;
+  for (let x = 0; x < firstId.length; x++) {
+    firstId[x];
+    console.log(firstId[x]);
+    const categoryData = await getCategoryData(firstId[`${x}`]);
+    console.log("category data", categoryData);
+    categories.push(categoryData);
+  }
+
+  for (let i = 0; i < 6; i++) {
+    fillTable(categories[i].title);
+  }
+
+  const question = document.querySelectorAll("td");
+  for (questions of question) {
+    // let { , second[clues]} = categories
+    questions.innerText = `${categories[1].clues[0].question}`;
+  }
+  console.log(categories[0].clues[0].question);
+  console.log(categories);
+  let [first, second, third, fourth, fifth, sixth] = categories;
+  console.log(second);
 }
 
+const question = document.querySelectorAll("clues");
 
-async function setupTheGame ()
-{
- 
+async function getCategoryIds() {
+  let res = await axios.get(
+    `${API_URL}categories?count=${NUMBER_OF_CATEGORIES}`
+  );
+  // categories = await res.data.map(ids => ids)
+
+  return res.data.map((ids) => ids.id);
 }
 
-
-async function getCategoryIds ()
-{
- 
-let res = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
-count=${NUMBER_OF_CATEGORIES}`)
-const ids = [];
-for(let x = 0; x < res.data.length; x++){
-    // console.log(res.data[x].id, res.data[x].title, )
-    ids = ids + res.data[x]
-}
-//  const ids =  await res.data[0].id; 
-//  console.log(res.data)
-//  console.log(ids)
-
-  return ids;
+async function getCategoryData(categoryId) {
+  const categoryWithClues =
+    await axios.get(`https://rithm-jeopardy.herokuapp.com/api/category?
+id=${categoryId}`);
+  return categoryWithClues.data;
 }
 
+function fillTable(categories) {
+  const categorieHeader = document.getElementById("categories");
+  const tableHeadCategorie = document.createElement("th");
+  tableHeadCategorie.innerText = categories;
+  categorieHeader.append(tableHeadCategorie);
+  const clues = document.getElementById("clues");
 
-async function getCategoryData (categoryId)
-{
-  const categoryWithClues = {
-    id: categoryId,
-    title: undefined, 
-    clues: [] 
-  };
-
-
-
-  return categoryWithClues;
-}
-
-
-function fillTable (categories)
-{
-  
+  const tableData = document.createElement("td");
+  for (let x = 0; x < 30; x++) {
+    tableData;
+    console.log(x);
+    clues.append(tableData);
+  }
+  // tableData.innerText = categories;
+  // clues.append(tableData);
 }
 
 $(".clue").on("click", handleClickOfClue);
 
-
-function handleClickOfClue (event)
-{
-  
-}
+function handleClickOfClue(event) {}
 
 $("#active-clue").on("click", handleClickOfActiveClue);
 
-
-function handleClickOfActiveClue (event)
-{
-  
-
-  if (activeClueMode === 1)
-  {
+function handleClickOfActiveClue(event) {
+  if (activeClueMode === 1) {
     activeClueMode = 2;
     $("#active-clue").html(activeClue.answer);
-  }
-  else if (activeClueMode === 2)
-  {
+  } else if (activeClueMode === 2) {
     activeClueMode = 0;
     $("#active-clue").html(null);
 
-    if (categories.length === 0)
-    {
+    if (categories.length === 0) {
       isPlayButtonClickable = true;
       $("#play").text("Restart the Game!");
       $("#active-clue").html("The End!");
     }
   }
 }
+
+let fish = "xray";

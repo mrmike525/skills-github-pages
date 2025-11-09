@@ -38,3 +38,9 @@ function generateTable(rows = 6, cols = 6) {
 // Example usage:
 generateTable(6, 6); // 6x6 table
 // generateTable(4, 8); // try 4x8
+// document.querySelector('table').style.display = "none";
+// document.querySelector('table').style.display = "table";
+let td = document.querySelectorAll("td");
+// for (tds of td) {
+//   tds.textContent = ""
+// }
