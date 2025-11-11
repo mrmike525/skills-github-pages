@@ -1,6 +1,7 @@
 {
-  "editor.formatOnPaste": false,
+  "editor.formatOnPaste": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.formatOnType": true
+  "editor.formatOnType": true,
+  "diffEditor.codeLens": false
 }
