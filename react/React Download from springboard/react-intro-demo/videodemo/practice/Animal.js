@@ -1,4 +1,5 @@
 const Animal = (props) => {
+  console.log(props);
   return (
     <div>
       <h1>Emoji: {props.emoji}</h1>
