@@ -1,0 +1,41 @@
+.main {
+    position: absolute;
+    background-image: url("mainPic.jpg");
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-size: cover;      /* Scales the image to cover the entire viewport */
+    background-attachment: fixed;/* Keeps the image in place when scrolling */
+    width: 100%;
+    top: 25px;
+    margin-top: 30px;
+    
+}
+.main h1 {
+    position: relative;
+    font-size: 100px;
+    left: 20%;
+    color: rgb(253, 255, 226);
+
+    
+}
+.nav {
+    width: 100%;
+    background-color: rgb(186, 182, 182);
+    margin-bottom: 10px;
+    position: fixed;
+    top: 5px;
+    
+}
+.nav a {
+    margin-left: 10px;
+    
+    
+}
+body {
+    margin: 0;
+}
+.scrollText {
+    font-size: 200px;
+    margin: 20px;
+    top
+    
+}

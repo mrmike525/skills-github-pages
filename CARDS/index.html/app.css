@@ -1,0 +1,44 @@
+#container {
+  position: relative;
+  width: 400px;
+  height: 700px;
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Corners */
+.corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+}
+
+#top {
+  top: 10px;
+  left: 10px;
+}
+
+#bottom {
+  bottom: 10px;
+  right: 10px;
+}
+
+.card {
+  margin: 0;
+  font-size: 25px;
+  color: white;
+  font-family: Fondamento;
+}
+
+/* Center symbol */
+#middle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 130px;
+  color: white;
+  -webkit-text-stroke: 5px red;
+  font-family: Fondamento;
+}

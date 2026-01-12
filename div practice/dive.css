@@ -1,0 +1,13 @@
+.a {
+  background-color: orange;
+  width: 20%;
+  overflow: scroll;
+  display: flex;
+}
+.b {
+  background-color: red;
+}
+
+.ai {
+  height: 100px;
+}
