@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine Card for Abby 💘</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Soft floating hearts background -->
+    <div class="bg-hearts" aria-hidden="true"></div>
+
+    <!-- CARD STAGE -->
+    <main class="stage" id="cardStage">
+      <section class="card-scene">
+        <div class="card" id="card" role="button" aria-label="Open Valentine card" tabindex="0">
+          <!-- FRONT -->
+          <div class="face face-front">
+            <div class="front-content">
+              <div class="badge">💌</div>
+              <h1>Happy Valentine’s Day, Abby!</h1>
+              <p class="sub">Tap / click to open</p>
+              <div class="front-art">
+                <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- INSIDE (left + right like a real card) -->
+          <div class="face face-inside">
+            <div class="inside">
+              <div class="inside-left" id="insideLeft">
+                <div class="inside-art corner corner-tl">💘</div>
+                <div class="inside-art corner corner-bl">🌹</div>
+
+                <div class="inside-message">
+                  <h2>Will you be my valentine?</h2>
+                  <p class="prompt">Check “Yes” or “No”</p>
+
+                  <div class="choices" id="choices">
+                    <label class="choice yes">
+                      <input id="yesBox" type="checkbox" />
+                      <span>Yes</span>
+                    </label>
+
+                    <!-- No runs away -->
+                    <label class="choice no" id="noLabel">
+                      <input id="noBox" type="checkbox" />
+                      <span>No</span>
+                    </label>
+                  </div>
+
+                  
+                </div>
+                <p class="tiny tiny-bottom">(No pressure… but “No” is feeling shy 😅)</p>
+              </div>
+
+              <div class="inside-right">
+                <div class="inside-art corner corner-tr">💗</div>
+                <div class="inside-art corner corner-br">🍫</div>
+
+                <div class="inside-right-art">
+                  <div class="heart-wreath" aria-hidden="true"></div>
+                  <p class="note">
+                    You make my world brighter, calmer, and way more fun.
+                    <br />
+                    <strong>- Michael</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BACK -->
+          <div class="face face-back">
+            <div class="back-content">
+              <h2>YAYYYYY! 💞</h2>
+              <p>Fireworks for Abby!</p>
+
+              <div class="fireworks-wrap">
+                <canvas id="fireworks" width="900" height="520" aria-label="Valentine fireworks animation"></canvas>
+              </div>
+
+              <button class="more-btn" id="moreBtn" type="button">Click for more</button>
+              <p class="tiny">Tap it 😊</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Big heart animation overlay (after Yes) -->
+      <div class="yes-overlay" id="yesOverlay" aria-hidden="true">
+        <div class="full-heart">
+          <div class="heart"></div>
+          <div class="sparkle"></div>
+        </div>
+        <div class="overlay-text">She said YES! 💘</div>
+      </div>
+    </main>
+
+    <!-- GALLERY STAGE -->
+    <section class="gallery-stage hidden" id="galleryStage">
+      <div class="gallery-bg" id="galleryBg" aria-hidden="true"></div>
+
+      <div class="gallery-ui">
+        <div class="gallery-title">
+          <h2>Our Memories 💖</h2>
+          <p>Use the arrows (or swipe on mobile) to browse</p>
+        </div>
+
+        <div class="thumb-strip">
+          <button class="arrow left" id="prevBtn" aria-label="Previous photo">◀</button>
+
+          <div class="thumb-viewport" id="thumbViewport">
+            <div class="thumb-row" id="thumbRow">
+              <!-- JS injects thumbnails here -->
+            </div>
+          </div>
+
+          <button class="arrow right" id="nextBtn" aria-label="Next photo">▶</button>
+        </div>
+
+        <div class="hint">
+          <span class="pill">XOXOXOXOX:</span> XOXOXOXOXOXOXOXO 
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
