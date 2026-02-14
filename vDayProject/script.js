@@ -69,7 +69,10 @@ yesBox.addEventListener("change", () => {
       card.classList.remove("opened");
       card.classList.add("to-back");
       isOnBack = true;
-      startFireworks(); // ensure fireworks running
+      const fireAudio = new Audio("assets/fireworks.mp3");
+
+      startFireworks();
+      fireAudio.play(); // ensure fireworks running
     }, 900);
   }
 });
@@ -101,7 +104,7 @@ function moveNoSomewhere() {
   const maxX = Math.max(pad, panelRect.width - noLabel.offsetWidth - pad);
   const maxY = Math.max(
     pad,
-    panelRect.height - noLabel.offsetHeight - pad - bottomReserve
+    panelRect.height - noLabel.offsetHeight - pad - bottomReserve,
   );
 
   const x = rand(pad, maxX);
@@ -113,17 +116,21 @@ function moveNoSomewhere() {
 
 /* Trigger the run-away on hover, touch, or pointer approach */
 ["mouseenter", "pointerenter", "touchstart", "pointerdown"].forEach((evt) => {
-  noLabel.addEventListener(evt, (e) => {
-    // Don’t do anything once yes was chosen
-    if (yesChosen) return;
+  noLabel.addEventListener(
+    evt,
+    (e) => {
+      // Don’t do anything once yes was chosen
+      if (yesChosen) return;
 
-    // Prevent "No" from being clicked on touch/pointerdown
-    if (evt === "pointerdown" || evt === "touchstart") {
-      e.preventDefault();
-    }
+      // Prevent "No" from being clicked on touch/pointerdown
+      if (evt === "pointerdown" || evt === "touchstart") {
+        e.preventDefault();
+      }
 
-    moveNoSomewhere();
-  }, { passive: false });
+      moveNoSomewhere();
+    },
+    { passive: false },
+  );
 });
 
 /* Also run away if user tries to focus it (keyboard) */
@@ -181,7 +188,7 @@ function addRocket() {
     vx: rand(-0.25, 0.25),
     vy: rand(-6.2, -8.6),
     targetY: rand(h * 0.18, h * 0.45),
-    exploded: false
+    exploded: false,
   });
 }
 
@@ -193,7 +200,8 @@ function explode(x, y) {
     const speed = rand(1.2, 5.2);
 
     particles.push({
-      x, y,
+      x,
+      y,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
       life: rand(50, 90),
@@ -201,14 +209,15 @@ function explode(x, y) {
       gravity: 0.06,
       drag: 0.985,
       // Pink/red/white palette
-      colorPick: Math.random()
+      colorPick: Math.random(),
     });
   }
 
   // Add a few "heart" sparks (drawn as small heart shapes)
   for (let j = 0; j < 10; j++) {
     particles.push({
-      x, y,
+      x,
+      y,
       vx: rand(-2.2, 2.2),
       vy: rand(-2.2, 2.2),
       life: rand(55, 90),
@@ -216,7 +225,7 @@ function explode(x, y) {
       gravity: 0.04,
       drag: 0.988,
       colorPick: 0.999, // treat as special
-      isHeart: true
+      isHeart: true,
     });
   }
 }
@@ -293,7 +302,12 @@ function stepFireworks(ts) {
     const alpha = Math.max(0, 1 - t);
 
     if (p.isHeart) {
-      drawHeart(p.x, p.y, 10 * (window.devicePixelRatio || 1) / 10, alpha * 0.9);
+      drawHeart(
+        p.x,
+        p.y,
+        (10 * (window.devicePixelRatio || 1)) / 10,
+        alpha * 0.9,
+      );
     } else {
       const base = pickColor(p.colorPick);
       ctx.fillStyle = base + (alpha * 0.9).toFixed(3) + ")";
@@ -325,20 +339,19 @@ startFireworks();
    Gallery: arrows + moving thumbs + fullscreen bg
    ========================= */
 
-/**
- * Replace these URLs with your Abby photos.
- * You can use:
- * - local files in same folder: "img/photo1.jpg"
- * - or hosted links
- */
 const images = [
   // PLACEHOLDERS (swap these out)
+  "assets/daKiss.jpg",
+  "assets/abbyAndMe.jpg",
+  "assets/abbyAndITreasure.jpg",
+  "assets/sauceBoss.PNG",
+  "assets/abbyAndDex.png",
   "assets/abbyAndIBecca.jpeg",
   "assets/abbyAndI.jpeg",
   "assets/abbyAndISilly.jpeg",
   "assets/abbyAndISilly2.jpeg",
   "assets/abbyAndI2.jpeg",
-  "assets/abbyAndI3.jpeg"
+  "assets/abbyAndI3.jpeg",
 ];
 
 let activeIndex = 0;
@@ -348,6 +361,7 @@ function setBackground(url) {
   galleryBg.style.opacity = "0";
   setTimeout(() => {
     galleryBg.style.backgroundImage = `url("${url}")`;
+    // galleryBg.style.backgroundSize = "90%";
     galleryBg.style.opacity = "1";
   }, 120);
 }
@@ -368,6 +382,7 @@ function renderThumbs() {
     const img = document.createElement("img");
     img.src = src;
     img.alt = `Memory ${idx + 1}`;
+    img.style.width = "100%";
 
     btn.appendChild(img);
     thumbRow.appendChild(btn);
@@ -385,7 +400,9 @@ function centerActiveThumb() {
 
   // Compute current translateX from transform (if any)
   const style = window.getComputedStyle(thumbRow);
-  const matrix = new DOMMatrixReadOnly(style.transform === "none" ? undefined : style.transform);
+  const matrix = new DOMMatrixReadOnly(
+    style.transform === "none" ? undefined : style.transform,
+  );
   const currentX = matrix.m41 || 0;
 
   // desired shift:
@@ -423,6 +440,8 @@ function initGallery() {
   activeIndex = 0;
   setBackground(images[0]);
   syncGalleryUI();
+  const song = new Audio("assets/song.m4a");
+  song.play();
 }
 
 /* Arrow controls */
@@ -438,9 +457,13 @@ nextBtn.addEventListener("click", () => {
 
 /* Optional: swipe support on mobile for gallery */
 let touchStartX = null;
-galleryStage.addEventListener("touchstart", (e) => {
-  touchStartX = e.touches[0].clientX;
-}, { passive: true });
+galleryStage.addEventListener(
+  "touchstart",
+  (e) => {
+    touchStartX = e.touches[0].clientX;
+  },
+  { passive: true },
+);
 
 galleryStage.addEventListener("touchend", (e) => {
   if (touchStartX == null) return;
@@ -465,3 +488,8 @@ function resetNoPosition() {
   noLabel.style.top = "";
 }
 resetNoPosition();
+
+if (isOnBack == true) {
+  const fireAudio = new Audio("assets/fireworks.mp3");
+  fireAudio.play();
+}
