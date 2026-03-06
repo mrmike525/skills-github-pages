@@ -1,0 +1,33 @@
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignJustify {
+  text-align: justify;
+}
+
+.top,
+section h2,
+.textAlign,
+.verticalAlignValues {
+  background-color: yellow;
+  text-align: justify;
+}
+
+.verticalAlignTop {
+  vertical-align: bottom;
+  width: 50%;
+  display: inline;
+}
+
+.mainDiv {
+  width: 80%;
+}

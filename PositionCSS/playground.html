@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Playground — Combine Everything</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="playground">
+    <header class="topbar">
+      <div class="wrap topbar__row">
+        <div>
+          <h1>
+            Playground: Combine Float + Position + Flex + Grid + Align + Media
+          </h1>
+          <p class="sub">Page 3: No definitions — just experiment</p>
+        </div>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Page 1</a>
+          <a class="nav__link" href="page2.html">Page 2</a>
+          <a class="nav__link nav__link--active" href="playground.html"
+            >Playground</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap grid2">
+      <section class="panel">
+        <h2>Controls</h2>
+
+        <div class="card">
+          <h3>Float</h3>
+          <div class="controls">
+            <label>
+              float
+              <select id="pgFloat">
+                <option value="none">none</option>
+                <option value="left">left</option>
+                <option value="right">right</option>
+                <option value="inline-start">inline-start</option>
+                <option value="inline-end">inline-end</option>
+              </select>
+            </label>
+            <label class="row">
+              <input type="checkbox" id="pgClearfix" checked />
+              clearfix on container
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Position</h3>
+          <div class="controls">
+            <label>
+              position
+              <select id="pgPos">
+                <option value="static">static</option>
+                <option value="relative">relative</option>
+                <option value="absolute">absolute</option>
+                <option value="fixed">fixed</option>
+                <option value="sticky">sticky</option>
+              </select>
+            </label>
+            <div class="range4">
+              <label
+                >top
+                <input id="pgTop" type="range" min="-80" max="160" value="20"
+              /></label>
+              <label
+                >right
+                <input id="pgRight" type="range" min="-80" max="160" value="0"
+              /></label>
+              <label
+                >bottom
+                <input id="pgBottom" type="range" min="-80" max="160" value="0"
+              /></label>
+              <label
+                >left
+                <input id="pgLeft" type="range" min="-80" max="160" value="20"
+              /></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Flexbox</h3>
+          <div class="controls">
+            <label>
+              flex-direction
+              <select id="pgFlexDir">
+                <option value="row">row</option>
+                <option value="row-reverse">row-reverse</option>
+                <option value="column">column</option>
+                <option value="column-reverse">column-reverse</option>
+              </select>
+            </label>
+            <label>
+              justify-content
+              <select id="pgJustify">
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="flex-end">flex-end</option>
+                <option value="space-between">space-between</option>
+                <option value="space-around">space-around</option>
+                <option value="space-evenly">space-evenly</option>
+              </select>
+            </label>
+            <label>
+              align-items
+              <select id="pgAlign">
+                <option value="stretch">stretch</option>
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="flex-end">flex-end</option>
+                <option value="baseline">baseline</option>
+              </select>
+            </label>
+            <label>
+              gap (px)
+              <input id="pgFlexGap" type="range" min="0" max="40" value="12" />
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Grid</h3>
+          <div class="controls">
+            <label>
+              columns
+              <input id="pgGridCols" type="range" min="1" max="6" value="3" />
+            </label>
+            <label>
+              gap (px)
+              <input id="pgGridGap" type="range" min="0" max="40" value="12" />
+            </label>
+            <label>
+              justify-items
+              <select id="pgJustifyItems">
+                <option value="stretch">stretch</option>
+                <option value="start">start</option>
+                <option value="center">center</option>
+                <option value="end">end</option>
+              </select>
+            </label>
+            <label>
+              align-items
+              <select id="pgGridAlignItems">
+                <option value="stretch">stretch</option>
+                <option value="start">start</option>
+                <option value="center">center</option>
+                <option value="end">end</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Text-align / Vertical-align</h3>
+          <div class="controls">
+            <label>
+              text-align
+              <select id="pgTextAlign">
+                <option value="left">left</option>
+                <option value="center">center</option>
+                <option value="right">right</option>
+                <option value="justify">justify</option>
+                <option value="start">start</option>
+                <option value="end">end</option>
+              </select>
+            </label>
+            <label>
+              vertical-align (badge)
+              <select id="pgValign">
+                <option value="baseline">baseline</option>
+                <option value="middle">middle</option>
+                <option value="top">top</option>
+                <option value="bottom">bottom</option>
+                <option value="text-top">text-top</option>
+                <option value="text-bottom">text-bottom</option>
+                <option value="sub">sub</option>
+                <option value="super">super</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Media Queries (sim)</h3>
+          <div class="controls">
+            <label>
+              simulator width (px)
+              <input
+                id="pgMqWidth"
+                type="range"
+                min="320"
+                max="1100"
+                value="900"
+              />
+            </label>
+            <div class="pill" id="pgMqLabel"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Computed CSS</h3>
+          <pre id="readout" class="readout"></pre>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Playground Stage</h2>
+
+        <div id="pgContainer" class="float-demo clearfix">
+          <div id="pgBox" class="demo-box demo-box--pink">Target Box</div>
+          <p id="pgText" class="demo-text">
+            This paragraph exists so you can see how
+            <strong>float</strong> affects text wrapping, and how
+            <strong>position</strong> can pull elements out of flow. Here is an
+            inline badge <span id="pgBadge" class="badge">BADGE</span> to test
+            vertical-align.
+          </p>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Flex stage</h3>
+          <div id="pgFlexStage" class="flex-stage">
+            <div class="flex-item">A</div>
+            <div class="flex-item big">B</div>
+            <div class="flex-item">C</div>
+            <div class="flex-item">D</div>
+            <div class="flex-item">E</div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Grid stage</h3>
+          <div id="pgGridStage" class="grid-stage">
+            <div class="grid-card">1</div>
+            <div class="grid-card tall">2</div>
+            <div class="grid-card">3</div>
+            <div class="grid-card">4</div>
+            <div class="grid-card">5</div>
+            <div class="grid-card">6</div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Media demo (real + simulator)</h3>
+          <div class="mq-frame">
+            <div id="pgMqDemo" class="mq-demo" data-sim="lg">
+              <div class="mq-hero">Hero</div>
+              <div class="mq-side">Sidebar</div>
+              <div class="mq-main">Main content</div>
+              <div class="mq-foot">Footer</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

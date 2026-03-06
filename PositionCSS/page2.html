@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Arrangement, Positioning & Flow — Page 2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="page2">
+    <header class="topbar">
+      <div class="wrap topbar__row">
+        <div>
+          <h1>CSS Arrangement, Positioning & Flow</h1>
+          <p class="sub">
+            Page 2: Grid • Vertical-align/Text-align • Media Queries
+          </p>
+        </div>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Page 1</a>
+          <a class="nav__link nav__link--active" href="page2.html">Page 2</a>
+          <a class="nav__link" href="playground.html">Playground</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap grid2">
+      <section class="panel">
+        <h2>1) grid</h2>
+        <p>
+          CSS Grid is a two-dimensional layout system (rows AND columns). You
+          typically set <code>display: grid</code> on a container and define
+          tracks with <code>grid-template-columns</code> and
+          <code>grid-template-rows</code>.
+        </p>
+
+        <div class="card">
+          <h3>Core syntax</h3>
+          <pre class="code">
+.grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }</pre
+          >
+
+          <h3>Common grid values</h3>
+          <ul class="chips">
+            <li><code>display: grid | inline-grid</code></li>
+            <li>
+              <code>grid-template-columns: repeat(n, 1fr) | 200px 1fr ...</code>
+            </li>
+            <li><code>justify-items: start | center | end | stretch</code></li>
+            <li><code>align-items: start | center | end | stretch</code></li>
+            <li><code>gap: length</code></li>
+          </ul>
+
+          <div class="controls">
+            <label>
+              columns
+              <input id="gridCols" type="range" min="1" max="6" value="3" />
+            </label>
+
+            <label>
+              min column width (px)
+              <input id="gridMin" type="range" min="80" max="220" value="120" />
+            </label>
+
+            <label>
+              justify-items
+              <select id="justifyItems">
+                <option value="stretch">stretch</option>
+                <option value="start">start</option>
+                <option value="center">center</option>
+                <option value="end">end</option>
+              </select>
+            </label>
+
+            <label>
+              align-items
+              <select id="gridAlignItems">
+                <option value="stretch">stretch</option>
+                <option value="start">start</option>
+                <option value="center">center</option>
+                <option value="end">end</option>
+              </select>
+            </label>
+
+            <label>
+              gap (px)
+              <input id="gridGap" type="range" min="0" max="40" value="12" />
+            </label>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <h2>2) vertical-align & text-align</h2>
+        <p>
+          <code>text-align</code> aligns inline content inside a block (like
+          text inside a <code>p</code>). <code>vertical-align</code> mainly
+          affects inline/inline-block/table-cell alignment. It does
+          <em>not</em> vertically center block elements by itself.
+        </p>
+
+        <div class="card">
+          <h3>Syntax</h3>
+          <pre class="code">
+.text { text-align: center; }
+.inline { vertical-align: middle; }</pre
+          >
+
+          <h3>Values</h3>
+          <ul class="chips">
+            <li>
+              <code
+                >text-align: left | right | center | justify | start | end</code
+              >
+            </li>
+            <li>
+              <code
+                >vertical-align: baseline | middle | top | bottom | text-top |
+                text-bottom | sub | super</code
+              >
+            </li>
+          </ul>
+
+          <div class="controls">
+            <label>
+              text-align
+              <select id="textAlign">
+                <option value="left">left</option>
+                <option value="center">center</option>
+                <option value="right">right</option>
+                <option value="justify">justify</option>
+                <option value="start">start</option>
+                <option value="end">end</option>
+              </select>
+            </label>
+
+            <label>
+              vertical-align (for inline-block badge)
+              <select id="verticalAlign">
+                <option value="baseline">baseline</option>
+                <option value="middle">middle</option>
+                <option value="top">top</option>
+                <option value="bottom">bottom</option>
+                <option value="text-top">text-top</option>
+                <option value="text-bottom">text-bottom</option>
+                <option value="sub">sub</option>
+                <option value="super">super</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <h2>3) media queries</h2>
+        <p>
+          Media queries let CSS apply styles conditionally based on the
+          device/viewport. Common features include <code>max-width</code>,
+          <code>min-width</code>, and orientation.
+        </p>
+
+        <div class="card">
+          <h3>Syntax examples</h3>
+          <pre class="code">
+@media (max-width: 720px) { ... }
+@media (min-width: 721px) and (max-width: 1100px) { ... }</pre
+          >
+
+          <p class="hint">
+            Resize your browser to see the “Media demo” change automatically.
+            Also use the simulator slider below to force demo breakpoints.
+          </p>
+
+          <div class="controls">
+            <label>
+              simulator width (px)
+              <input
+                id="mqWidth"
+                type="range"
+                min="320"
+                max="1100"
+                value="900"
+              />
+            </label>
+            <div class="pill" id="mqLabel"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Live Demos</h2>
+
+        <div class="stage">
+          <h3 class="stage__title">Grid demo</h3>
+          <div id="gridStage" class="grid-stage">
+            <div class="grid-card">1</div>
+            <div class="grid-card tall">2</div>
+            <div class="grid-card">3</div>
+            <div class="grid-card">4</div>
+            <div class="grid-card">5</div>
+            <div class="grid-card">6</div>
+            <div class="grid-card">7</div>
+            <div class="grid-card">8</div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Text-align + Vertical-align demo</h3>
+          <div id="textStage" class="text-stage">
+            <p id="textTarget" class="text-target">
+              This is a paragraph with an inline-block badge
+              <span id="badge" class="badge">BADGE</span>
+              that you can vertically-align relative to the text baseline.
+            </p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Media queries demo (real + simulator)</h3>
+          <div class="mq-frame">
+            <div id="mqDemo" class="mq-demo" data-sim="lg">
+              <div class="mq-hero">Hero</div>
+              <div class="mq-side">Sidebar</div>
+              <div class="mq-main">Main content</div>
+              <div class="mq-foot">Footer</div>
+            </div>
+          </div>
+          <p class="hint small">
+            Real breakpoints trigger on your browser width. Simulator triggers
+            on the slider.
+          </p>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Computed CSS</h3>
+          <pre id="readout" class="readout"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <p>
+        Try: <a href="playground.html">Playground (combine everything)</a> • Or
+        back to <a href="index.html">Page 1</a>
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

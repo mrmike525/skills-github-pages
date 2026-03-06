@@ -1,0 +1,19 @@
+#container {
+  display: flex;
+  border: 2px solid black;
+}
+#spanA {
+  float: left;
+  border: 2px solid hsl(39, 77%, 43%);
+}
+
+#divA {
+  float: inline-end
+  order: 2
+  border: 2px solid hsl(0, 61%, 30%)
+}
+
+#divC {
+  order: 1,
+  border: 2px solid yellow;
+}

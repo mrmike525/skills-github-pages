@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Arrangement, Positioning & Flow — Page 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="page1">
+    <header class="topbar">
+      <div class="wrap topbar__row">
+        <div>
+          <h1>CSS Arrangement, Positioning & Flow</h1>
+          <p class="sub">Page 1: Float • Position • Flexbox</p>
+        </div>
+        <nav class="nav">
+          <a class="nav__link nav__link--active" href="index.html">Page 1</a>
+          <a class="nav__link" href="page2.html">Page 2</a>
+          <a class="nav__link" href="playground.html">Playground</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap grid2">
+      <!-- LEFT: lessons + controls -->
+      <section class="panel">
+        <h2>1) float</h2>
+        <p>
+          <code>float</code> controls whether an element is taken out of normal
+          flow and “floats” to a side, allowing inline content (like text) to
+          wrap around it.
+        </p>
+
+        <div class="card">
+          <h3>Syntax</h3>
+          <pre class="code">.box { float: left; }</pre>
+          <h3>Values</h3>
+          <ul class="chips">
+            <li><code>none</code></li>
+            <li><code>left</code></li>
+            <li><code>right</code></li>
+            <li><code>inline-start</code></li>
+            <li><code>inline-end</code></li>
+          </ul>
+
+          <div class="controls">
+            <label>
+              float value
+              <select id="floatValue">
+                <option value="none">none</option>
+                <option value="left">left</option>
+                <option value="right">right</option>
+                <option value="inline-start">inline-start</option>
+                <option value="inline-end">inline-end</option>
+              </select>
+            </label>
+
+            <label class="row">
+              <input type="checkbox" id="clearfixToggle" checked />
+              Apply clearfix to the container (prevents collapse)
+            </label>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <h2>2) position</h2>
+        <p>
+          <code>position</code> controls how an element is placed and whether it
+          stays in normal flow. Some values allow you to use
+          <code>top/right/bottom/left</code> offsets.
+        </p>
+
+        <div class="card">
+          <h3>Syntax</h3>
+          <pre class="code">
+.box { position: absolute; top: 20px; left: 20px; }</pre
+          >
+
+          <h3>Values</h3>
+          <ul class="chips">
+            <li><code>static</code></li>
+            <li><code>relative</code></li>
+            <li><code>absolute</code></li>
+            <li><code>fixed</code></li>
+            <li><code>sticky</code></li>
+          </ul>
+
+          <div class="controls">
+            <label>
+              position value
+              <select id="posValue">
+                <option value="static">static</option>
+                <option value="relative">relative</option>
+                <option value="absolute">absolute</option>
+                <option value="fixed">fixed</option>
+                <option value="sticky">sticky</option>
+              </select>
+            </label>
+
+            <div class="range4">
+              <label
+                >top
+                <input id="posTop" type="range" min="-60" max="120" value="20"
+              /></label>
+              <label
+                >right
+                <input id="posRight" type="range" min="-60" max="120" value="0"
+              /></label>
+              <label
+                >bottom
+                <input
+                  id="posBottom"
+                  type="range"
+                  min="-60"
+                  max="120"
+                  value="0"
+              /></label>
+              <label
+                >left
+                <input id="posLeft" type="range" min="-60" max="120" value="20"
+              /></label>
+            </div>
+
+            <p class="hint">
+              Tip: <code>absolute</code> positions relative to the nearest
+              ancestor that is not <code>static</code>. This demo sets the stage
+              to <code>position: relative</code>.
+            </p>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <h2>3) flexbox</h2>
+        <p>
+          Flexbox is a layout system for one-dimensional layouts (row or
+          column). You usually set <code>display: flex</code> on a container,
+          then use alignment properties.
+        </p>
+
+        <div class="card">
+          <h3>Core syntax</h3>
+          <pre class="code">
+.container { display: flex; justify-content: center; align-items: center; }</pre
+          >
+
+          <h3>Common flex values</h3>
+          <ul class="chips">
+            <li><code>display: flex | inline-flex</code></li>
+            <li>
+              <code
+                >flex-direction: row | row-reverse | column |
+                column-reverse</code
+              >
+            </li>
+            <li>
+              <code
+                >justify-content: flex-start | center | flex-end | space-between
+                | space-around | space-evenly</code
+              >
+            </li>
+            <li>
+              <code
+                >align-items: stretch | flex-start | center | flex-end |
+                baseline</code
+              >
+            </li>
+            <li><code>flex-wrap: nowrap | wrap | wrap-reverse</code></li>
+          </ul>
+
+          <div class="controls">
+            <label>
+              display
+              <select id="flexDisplay">
+                <option value="flex">flex</option>
+                <option value="inline-flex">inline-flex</option>
+              </select>
+            </label>
+
+            <label>
+              flex-direction
+              <select id="flexDirection">
+                <option value="row">row</option>
+                <option value="row-reverse">row-reverse</option>
+                <option value="column">column</option>
+                <option value="column-reverse">column-reverse</option>
+              </select>
+            </label>
+
+            <label>
+              justify-content
+              <select id="justifyContent">
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="flex-end">flex-end</option>
+                <option value="space-between">space-between</option>
+                <option value="space-around">space-around</option>
+                <option value="space-evenly">space-evenly</option>
+              </select>
+            </label>
+
+            <label>
+              align-items
+              <select id="alignItems">
+                <option value="stretch">stretch</option>
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="flex-end">flex-end</option>
+                <option value="baseline">baseline</option>
+              </select>
+            </label>
+
+            <label>
+              flex-wrap
+              <select id="flexWrap">
+                <option value="nowrap">nowrap</option>
+                <option value="wrap">wrap</option>
+                <option value="wrap-reverse">wrap-reverse</option>
+              </select>
+            </label>
+
+            <label>
+              gap (px)
+              <input id="flexGap" type="range" min="0" max="40" value="12" />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: demo stages -->
+      <section class="panel">
+        <h2>Live Demos</h2>
+
+        <div class="stage">
+          <h3 class="stage__title">Float demo (wrap + clearfix)</h3>
+          <div id="floatContainer" class="float-demo clearfix">
+            <div id="floatBox" class="demo-box demo-box--pink">Float Box</div>
+            <p class="demo-text">
+              This paragraph is here to show text wrapping around a floated
+              element. Try <strong>left</strong> and <strong>right</strong>. If
+              the container collapses, toggle <strong>clearfix</strong>. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+              dolor nec risus dignissim finibus. Integer varius, odio at luctus
+              viverra, nisi nisi pulvinar nibh, sit amet iaculis ipsum sapien id
+              velit.
+            </p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Position demo (offsets)</h3>
+          <div id="posStage" class="pos-stage">
+            <div class="pos-bg">Stage (relative)</div>
+            <div id="posBox" class="demo-box demo-box--blue">Position Box</div>
+          </div>
+          <p class="hint small">
+            Sticky works best while scrolling — switch to <code>sticky</code>,
+            then scroll this page.
+          </p>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">Flexbox demo (container alignment)</h3>
+          <div id="flexStage" class="flex-stage">
+            <div class="flex-item">A</div>
+            <div class="flex-item big">B</div>
+            <div class="flex-item">C</div>
+            <div class="flex-item">D</div>
+            <div class="flex-item">E</div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <h3 class="stage__title">
+            Computed CSS (what your controls are setting)
+          </h3>
+          <pre id="readout" class="readout"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <p>
+        Next:
+        <a href="page2.html">Page 2 (Grid, Align/Text, Media Queries)</a> • Or
+        jump to <a href="playground.html">Playground</a>
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

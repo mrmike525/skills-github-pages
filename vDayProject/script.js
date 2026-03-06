@@ -342,7 +342,7 @@ startFireworks();
 const images = [
   // PLACEHOLDERS (swap these out)
   "assets/daKiss.jpg",
-  "assets/abbyAndMe.JPG",
+  "assets/abbyAndMe.jpg",
   "assets/abbyAndITreasure.jpg",
   "assets/sauceBoss.PNG",
   "assets/abbyAndDex.png",
