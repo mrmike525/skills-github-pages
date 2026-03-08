@@ -1,19 +1,78 @@
-#container {
+body {
+  margin: 0, auto;
+}
+#containerA {
   display: flex;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  flex-direction: row;
 }
 #spanA {
-  float: left;
-  border: 2px solid hsl(39, 77%, 43%);
+  /* float: left; */
+  border: 2px solid hsl(7, 77%, 43%);
+  order: 3;
+}
+#spanB {
+  border: 2px solid hsl(7, 34%, 34%);
+  order: 5;
+}
+#spanC {
+  border: 2px solid hsl(0, 88%, 17%);
+  order: 6;
 }
 
 #divA {
-  float: inline-end
-  order: 2
-  border: 2px solid hsl(0, 61%, 30%)
+  /* float: inline-end; */
+  order: 2;
+  border: 2px solid hsl(51, 93%, 59%);
+}
+#divB {
+  order: 1;
+  border: 2px solid hsl(59, 80%, 40%);
+}
+#divC {
+  order: 4;
+  border: 2px solid rgb(255, 253, 146);
 }
 
-#divC {
-  order: 1,
-  border: 2px solid yellow;
+#gridContainerA {
+  display: grid;
+  /* border: 2px solid black; */
+  /* flex-direction: row; */
+  margin-top: 5vh;
+}
+#gridSpanA {
+  /* float: left; */
+  border: 2px solid hsl(7, 77%, 43%);
+  order: 3;
+}
+#gridSpanB {
+  border: 2px solid hsl(7, 34%, 34%);
+  order: 5;
+}
+#gridSpanC {
+  border: 2px solid hsl(0, 88%, 17%);
+  order: 3;
+}
+
+#gridDivA {
+  /* float: inline-end; */
+  order: 2;
+  border: 2px solid hsl(51, 93%, 59%);
+}
+#gridDivB {
+  order: 4;
+  border: 2px solid hsl(59, 80%, 40%);
+}
+#gridDivC {
+  order: 1;
+  border: 2px solid rgb(255, 253, 146);
+}
+
+#img1 {
+  width: 20vw;
+  float: left;
+}
+#img2 {
+  width: 20vw;
+  float: inline-end;
 }
